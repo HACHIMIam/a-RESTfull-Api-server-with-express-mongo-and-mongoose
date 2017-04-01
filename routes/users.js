@@ -5,8 +5,15 @@ var User = require('../models/user');
 var Verify    = require('./verify');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.route('/')
+
+.get(Verify.verifyAdmin, function(req, res, next) {  
+  User.find({}, function(err, users) {
+    if (err) throw (err);
+    else {
+      res.json(users);
+    }
+  });
 });
 
 router.post('/register', function(req, res) {
@@ -29,12 +36,10 @@ router.post('/login', function(req, res, next) {
     if (!user) {
       return res.status(401).json({
         err: info
-		  
       });
     }
     req.logIn(user, function(err) {
       if (err) {
-		
         return res.status(500).json({
           err: 'Could not log in user'
         });
