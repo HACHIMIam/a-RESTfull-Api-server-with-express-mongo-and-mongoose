@@ -15,7 +15,7 @@ var commentSchema= new Schema({
 		type:String,
 		required:true
 	},
-	posteBy:{
+	postedBy:{// provid a link to the user schema  reference to the user object track the creect user for modification
 		type:mongoose.Schema.Types.ObjectId,
 		ref:'User'
 	}
