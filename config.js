@@ -1,4 +1,9 @@
 module.exports={
-	'secretKey':'12345-67890-09876-54321',
-	'mongoUrl':'mongodb://localhost:27017/conFusion'
+	'secretKey': '12345-67890-09876-54321',
+    'mongoUrl' : 'mongodb://localhost:27017/conFusion',
+    'facebook': {
+        clientID: '1834656000132043',
+        clientSecret: '003084ed94076b24a7358fd1cf023879',
+        callbackURL: 'https://localhost:3443/users/facebook/callback'
+}
 }
